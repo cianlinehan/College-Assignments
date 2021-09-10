@@ -1,5 +1,10 @@
-# Cian Linehan
-# CS2515 Assignment 2
+"""
+Cian Linehan
+CS2515 Algorithms and Data Structures I Assignment 2
+
+An assignment which implements a toy movie library using a binary search tree ADT.
+Received 80% for this project.
+"""
 from functools import total_ordering
 
 @total_ordering
