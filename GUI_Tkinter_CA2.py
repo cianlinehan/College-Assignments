@@ -1,15 +1,22 @@
 """
 Cian Linehan 119301381
-CS2513 Assignment 2
+CS2513 Intermediate Programming Assignment 2
 
 A game implemented using GUI Tkinter whilst adhering to OOP design principles.
 """
 
 '''
-The main extra functionality which I have added to this game is quick multiplication rounds. On multiples of 5 up to 20, there will be a bonus round. In each bonus round, you have 20 seconds to answer correctly for 2 points, if you take longer than this but are correct your score remains unchanged. If you are incorrect then regardless of time, you get -2 points. The points here are structured in such a way that you have to pass 4 of these bonus rounds to continue to the next part of the game. If you fail these bonus rounds 3 times, your score is reset to 0.
-When the score is above 20 i.e. when you pass the 4th and final bonus round, the time which you have to press the squares halves to 1 second and you have to make it to 35 points to win. On reaching 35 points, the game ends and the time it took you to win is displayed on the screen in seconds.
-Some other functionality includes a restart button which can be used except during bonus rounds to completely restart the game. Also, the squares randomly change colours. I have also handled the event in which a player does not input an integer for the multiplication rounds, in which I take it as the wrong answer and -2 points as before.
-My idea for this game came from reaction time tests to test your reaction speed, this is why I included total time at the end. The game could easily be made harder by making the multiplication rounds harder or by decreasing the time allowed to press the squares even earlier. This makes it adaptable to the clients requests for difficulty.
+The main extra functionality which I have added to this game is quick multiplication rounds. On multiples of 5 up to 20, there will be a bonus round. In each bonus round, you have 20 seconds to answer correctly for 2 points, if you take longer than this but are correct your score remains unchanged.
+If you are incorrect then regardless of time, you get -2 points.
+The points here are structured in such a way that you have to pass 4 of these bonus rounds to continue to the next part of the game.
+If you fail these bonus rounds 3 times, your score is reset to 0.
+When the score is above 20 i.e. when you pass the 4th and final bonus round, the time which you have to press the squares halves to 1 second and you have to make it to 35 points to win.
+On reaching 35 points, the game ends and the time it took you to win is displayed on the screen in seconds.
+Some other functionality includes a restart button which can be used except during bonus rounds to completely restart the game.
+Also, the squares randomly change colours. I have also handled the event in which a player does not input an integer for the multiplication rounds, in which I take it as the wrong answer and -2 points as before.
+My idea for this game came from reaction time tests to test your reaction speed, this is why I included total time at the end.
+The game could easily be made harder by making the multiplication rounds harder or by decreasing the time allowed to press the squares even earlier.
+This makes it adaptable to the clients requests for difficulty.
 '''
 from tkinter import *
 from random import *
