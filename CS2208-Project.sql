@@ -1,5 +1,6 @@
-/* Cian Linehan CS2208
+/* Cian Linehan CS2208 Information Storage and Management I
  * Project - CA2
+ * Creates an example contact tracing database with views and some triggers with constraints such as stopping visitors to a pub in a county which is not where they live.
  */
 
 /* Question 1 */
@@ -52,16 +53,6 @@ FOREIGN KEY (name)
         REFERENCES Food (name)
         ON DELETE CASCADE
 );
-
-
-
-
-
-
-
-
-
-
 
 CREATE TABLE Visit(
 PLN CHAR(5),
@@ -166,22 +157,6 @@ BEGIN
 	SIGNAL SQLSTATE '45000'
 	SET MESSAGE_TEXT='A person cannot visit more pubs in a 24hr period than their allowed DailyPubLimit';
 	END IF;
-
-	/*Select amount of rows in which a person has apparently visited two pubs at the same time
-	SET @x = 0;
-	SELECT COUNT(*) INTO @x
-	FROM Visit v1 CROSS JOIN Visit v2 ON v1.PPSN=v2.PPSN AND v1.PLN != v2.PLN 
-	WHERE v1.StartDateOfVisit BETWEEN v2.StartDateOfVisit AND v2.EndDateOfVisit;
-
-	
-	IF (@x) != 0 THEN
-	SIGNAL SQLSTATE '45000'
-	SET MESSAGE_TEXT='A person cannot visit two or more pubs at the same time';
-	I tried but could not get this part to work.
-	SELECT COUNT(*) INTO @error2
-	FROM Visit v1 WHERE DATE(v1.StartDateOfVisit) IN (SELECT DATE(v2.StartDateOfVisit) FROM Visit v2 WHERE v2.PPSN = v1.PPSN)
-	OR DATE(v1.EndDateOfVisit) IN (SELECT DATE(v2.StartDateOfVisit) FROM Visit v2 WHERE v2.PPSN = v1.PPSN);
-	END IF;*/
 END //
 DELIMITER ;
 
@@ -190,164 +165,3 @@ CREATE OR REPLACE VIEW COVID_NUMBERS AS
 SELECT P.PCounty AS 'county', COUNT(C.PPSN) AS 'cases'
 FROM Person AS P NATURAL JOIN Covid_Diagnosis AS C
 GROUP BY P.PCounty;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-CREATE OR REPLACE VIEW diff (team, goal_sco - goal_con) AS
-SELECT team, goal_sco - goal_con FROM Team WHERE goal_sco - goal_con IN 
-(SELECT MAX(goal_sco - goal_con) FROM Team);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FINAL EXAM Q14 */
-DELIMITER //
-CREATE TRIGGER IncrementPoints
-AFTER INSERT ON Matches
-FOR EACH ROW
-BEGIN
-	IF (new.goals2 - new.goals1) >= 1 THEN
-		UPDATE Results SET points = points + 3 WHERE team = new.team2;
-	ELSEIF (new.goals2 - new.goals1) = 0 THEN 
-		UPDATE Results SET points = points + 1 WHERE team = new.team1 or team = new.team2;
-	ELSE 
-		UPDATE Results SET points = points + 3 WHERE team = new.team2;
-	END IF;
-END //
-DELIMITER ;
-
-
-
-
