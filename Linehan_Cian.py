@@ -1,5 +1,10 @@
-# Cian Linehan 119301381
-# CS2513 Assignment 1
+"""
+Cian Linehan 119301381
+CS2513 Intermediate Programming Assignment 1
+
+This project models characters from Lord of the Rings which makes good use of OOP design
+principles - classes, objects, methods, inheritance and polymorphism.
+"""
 
 class Character:
     def __init__(self, name, strength):
@@ -152,6 +157,8 @@ class Knight(Archer):
             print('type ERROR')
 
     archers_list = property(__getArchers_list, __setArchers_list)
+    
+# Test
 o = Orc('cian', 4.3, True)
 o2 = Orc('conor', 4.3, False)
 a = Archer('conor', 2.1, 'glanmire')
