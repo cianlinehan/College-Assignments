@@ -1,6 +1,9 @@
-# Cian Linehan
-# CS2516 Shortest Paths CA
+"""
+Cian Linehan
+CS2516 Shortest Paths CA
 
+This project simulates a toy version of Google Maps utilising Dijkstra's shortest paths algorithm and ADT's such as adaptable priority queues and binary heaps.
+"""
 # ----------------------------------------------------------------------------------------------------------------------
 # Start of Adaptable Priority Queue ADT
 # ----------------------------------------------------------------------------------------------------------------------
