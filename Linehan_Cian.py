@@ -1,5 +1,9 @@
-# Cian Linehan 119301381
-# CS2513 Assignment 2
+"""
+Cian Linehan 119301381
+CS2513 Assignment 2
+
+A game implemented using GUI Tkinter whilst adhering to OOP design principles.
+"""
 
 '''
 The main extra functionality which I have added to this game is quick multiplication rounds. On multiples of 5 up to 20, there will be a bonus round. In each bonus round, you have 20 seconds to answer correctly for 2 points, if you take longer than this but are correct your score remains unchanged. If you are incorrect then regardless of time, you get -2 points. The points here are structured in such a way that you have to pass 4 of these bonus rounds to continue to the next part of the game. If you fail these bonus rounds 3 times, your score is reset to 0.
