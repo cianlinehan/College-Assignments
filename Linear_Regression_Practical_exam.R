@@ -1,7 +1,7 @@
 BMI.df = read.table('BMI.txt', header=T)
 attach(BMI.df)
 #q1
-#Student ID number = 119301381 Add 0.381 to BMI:
+#Student ID number : **** Add 0.381 to BMI:
 BMI.df[,2] = BMI.df[,2] + .381
 BMI.df = BMI.df[,-8]
 
@@ -18,7 +18,6 @@ t
 1-pt(.975,78)
 
 predict(bmi.lm, newdata=data.frame(Waist=c(88)))
-
 
 #2
 bmi2.lm = lm(BMI.df$BMI~BMI.df$Waist + BMI.df$Leg + BMI.df$Elbow + BMI.df$Wrist + BMI.df$Arm)
